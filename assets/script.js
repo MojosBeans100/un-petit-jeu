@@ -34,9 +34,48 @@ function playGameScreen() {
 
 
 /**
+ * This function will feed into the playGameScreen
+ * 4 - 6 multiple choice answers will be randomly generated
+ * and the correct question and answer will be calculated here
+ */
+function generateQuestion() {
+
+}
+
+
+/**
+ * This function will get the user answer from the radio buttons
+ * and check it against the correct answer 
+ * it will also increase the score tallies as required
+ */
+function checkAnswer() {
+
+}
+
+
+/** This function will allow the user to press the Skip Question button
+ * which will move on and regenerate the question
+ * it will increment a 'skipped' tally - decide whether this will be displayed or not
+ */
+function skipQuestion() {
+
+}
+
+
+/**
  * This screen shows the end score, congrats message,
  * perhaps input email address to send answers to
  */
 function endGameScreen() {
+
+}
+
+
+/**
+ * This function will reset the whole game and take 
+ * the user back to the home screen
+ * pop-up message to warn about loss of progress
+ */
+function resetGame() {
 
 }

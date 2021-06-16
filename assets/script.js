@@ -10,6 +10,7 @@ function introScreen() {
     // Let's start with your name - sub-title
     // Text input box (required)
     // Submit button "OK"
+    // -> gameOptionsScreen()
 }
 
 /**
@@ -25,6 +26,7 @@ function gameOptionsScreen() {
     // Game length radio buttons 10, 20, 30, 40, 50
     // Play!  - button
     // Return to Home - button
+    // -> instructionsScreen()
 }
 
 /**
@@ -48,6 +50,7 @@ function playGameScreen() {
     // Return to homepage button
     // Correct answers tally
     // Timer countdown
+    // -> generateQuestion()
 }
 
 
@@ -63,6 +66,7 @@ function generateQuestion() {
     // Index the words of these numbers from arrays, and put them into the HTMl radio buttons
     // Randomly select 1 number between 4 and 6 to be the chosen question/answer of indexed words
     // Index this number from the 4-6 words to get the question word and answer word
+    // -> checkAnswer()
 }
 
 
@@ -77,6 +81,7 @@ function checkAnswer() {
     // If correct, increment the correct tally and progress tally
     // If incorrect - ? decide what to do
     // If progress tally/number of questions answered = chosen game length - > endGameScreen
+    // -> generateQuestion() or endGameScreen()
 }
 
 
@@ -88,6 +93,7 @@ function skipQuestion() {
     // If skip question button is clicked, increase skip tally (hidden?)
     // and regenerate question
     // If progress tally/number of questions answered = chosen game length - > endGameScreen
+    // -> generateQuestion()
 }
 
 
@@ -101,6 +107,7 @@ function endGameScreen() {
     // Return to home button
     // If good score  - ?
     // If bad score - here are some suggested resources
+    // -> introScreen()
 }
 
 
@@ -113,4 +120,5 @@ function resetGame() {
     // Reset button calls this function
     // Alert message - loss of progress
     // Back to intro screen
+    // -> introScreen()
 }

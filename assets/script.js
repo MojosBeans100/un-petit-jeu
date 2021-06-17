@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded",introScreen);
+document.addEventListener("DOMContentLoaded", introScreen);
 
 /**
  * This function pulls up the main introduction screen, welcoming the user to the game,
@@ -45,6 +45,7 @@ function introScreen() {
     let introScreenButton = document.createElement("button");
     introScreenButton.id = "intro-screen-button";
     introScreenButton.innerHTML = "OK!";
+    introScreenButton.addEventListener("click",gameOptionsScreen);
 
     // append all HTML items
     mainDiv.appendChild(introScreenDiv);
@@ -53,7 +54,6 @@ function introScreen() {
     introScreenDiv.appendChild(introScreenNameMessage);
     introScreenDiv.appendChild(introScreenNameInput);
     introScreenDiv.appendChild(introScreenButton);
-
 
 }
 
@@ -71,6 +71,24 @@ function gameOptionsScreen() {
     // Play!  - button
     // Return to Home - button
     // -> instructionsScreen()
+
+    // get info from previous screen
+    let mainDiv = document.getElementById("main-div");
+    let userName = document.getElementById("intro-screen-name-input").value;
+
+    // create gameOptionsDiv
+    let gameOptionsDiv = document.createElement("div");
+
+    // create Welcome message
+    let gameOptionsWelcome = document.createElement("h1");
+    gameOptionsWelcome.id = "game-options-welcome";
+    gameOptionsWelcome.innerHTML = (`Welcome ${userName}!`);
+
+
+    // append all HTML items
+    mainDiv.appendChild(gameOptionsDiv);
+    gameOptionsDiv.appendChild(gameOptionsWelcome);
+
 }
 
 /**

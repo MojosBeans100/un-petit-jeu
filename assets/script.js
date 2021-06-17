@@ -84,10 +84,31 @@ function gameOptionsScreen() {
     gameOptionsWelcome.id = "game-options-welcome";
     gameOptionsWelcome.innerHTML = (`Welcome ${userName}!`);
 
+    // create game options message
+    let gameOptionsMessage = document.createElement("h2");
+    gameOptionsMessage.id = "game-options-message";
+    gameOptionsMessage.innerHTML = "Now choose some game options";
+
+    // create difficulty form 
+    let gameOptionsDifficultyForm = document.createElement("form");
+    gameOptionsDifficultyForm.id = "game-options-difficulty-form";
+
+    // create difficulty message
+    let gameOptionsDifficultyMessage = document.createElement("h3");
+    gameOptionsDifficultyMessage.id = "game-options-difficulty-message";
+    gameOptionsDifficultyMessage.innerHTMl = "Please choose a game difficulty";
+
+    // create difficulty radio buttons
+    let difficultyOptions = ["Easy", "Medium", "Hard"];
+    
+
 
     // append all HTML items
     mainDiv.appendChild(gameOptionsDiv);
     gameOptionsDiv.appendChild(gameOptionsWelcome);
+    gameOptionsDiv.appendChild(gameOptionsMessage);
+    gameOptionsDiv.appendChild(gameOptionsDifficultyForm);
+    gameOptionsDifficultyForm.appendChild(gameOptionsDifficultyMessage);
 
 }
 

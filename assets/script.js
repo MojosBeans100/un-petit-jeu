@@ -1,4 +1,6 @@
 
+document.addEventListener("DOMContentLoaded",introScreen);
+
 /**
  * This function pulls up the main introduction screen, welcoming the user to the game,
  * a brief summary as to what the game is
@@ -11,6 +13,48 @@ function introScreen() {
     // Text input box (required)
     // Submit button "OK"
     // -> gameOptionsScreen()
+
+    // get the main div
+    let mainDiv = document.getElementById("main-div");
+
+    // create introScreen div
+    let introScreenDiv = document.createElement("div");
+    introScreenDiv.id = "intro-screen-div";
+
+    // create welcome title
+    let introScreenHello = document.createElement("h1");
+    introScreenHello.id = "intro-screen-hello";
+    introScreenHello.innerHTML = "Welcome to Un Petit Jeu Francais";
+
+    // create welcome message
+    let introScreenMessage = document.createElement("h2");
+    introScreenMessage.id = "intro-screen-message";
+    introScreenMessage.innerHTML = "where you can test your French skills while having fun!";
+
+    // create name message
+    let introScreenNameMessage = document.createElement("h3");
+    introScreenNameMessage.id = "intro-screen-name-message";
+    introScreenNameMessage.innerHTML = "OK, let's start with your name..";
+
+    // create text input - if empty = Player 1? Or required
+    let introScreenNameInput = document.createElement("input");
+    introScreenNameInput.id = "intro-screen-name-input";
+    introScreenNameInput.type = "text";
+
+    // create button
+    let introScreenButton = document.createElement("button");
+    introScreenButton.id = "intro-screen-button";
+    introScreenButton.innerHTML = "OK!";
+
+    // append all HTML items
+    mainDiv.appendChild(introScreenDiv);
+    introScreenDiv.appendChild(introScreenHello);
+    introScreenDiv.appendChild(introScreenMessage);
+    introScreenDiv.appendChild(introScreenNameMessage);
+    introScreenDiv.appendChild(introScreenNameInput);
+    introScreenDiv.appendChild(introScreenButton);
+
+
 }
 
 /**

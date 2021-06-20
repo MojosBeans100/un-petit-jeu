@@ -84,7 +84,7 @@ function gameOptions() {
         event.preventDefault();
         playGame();
 
-        
+
 
     });
 
@@ -108,7 +108,7 @@ function generateQuestion() {
     // Get user's choice for game difficulty
     for (i = 0; i < 3; i++) {
         if (document.getElementById("game-options-form")[i].checked) {
-            gameDifficulty = toLowerCase(document.getElementsByTagName("label")[i].innerText);
+            gameDifficulty = (document.getElementsByTagName("label")[i].innerText);
             console.log(gameDifficulty)
             break;
         }
@@ -128,19 +128,41 @@ function generateQuestion() {
         timeLimit = 1500;
         questionLanguage = "French";
         answerLanguage = "English";
-   } else if (gameDifficulty = "medium") {
+    } else if (gameDifficulty = "medium") {
         numOfChoices = 5;
         timeLimit = 1000;
         questionLanguage = "French";
         answerLanguage = "English";
-   } else {
+    } else {
         numOfChoices = 6;
         timeLimit = 500;
         questionLanguage = "English";
         answerLanguage = "French";
-   }
+    }
 
+    let mcRandNumbers = [];
+    let mcQuestionWords = [];
+    let mcAnswerWords = [];
 
+    for (i = 0; i < numOfChoices; i++) {
+
+        // Create random numbers
+        mcRandNumbers[i] = Math.floor(Math.random() * options[questionLanguage][gameDifficulty].length);
+
+        // Index words from question and answer arrays 
+        mcQuestionWords[i] = options[questionLanguage][gameDifficulty][mcRandNumbers[i]];
+        mcAnswerWords[i] = options[answerLanguage][gameDifficulty][mcRandNumbers[i]];
+
+        // Remove these words from array so they cannot be chosen again in same game
+        options[questionLanguage][gameDifficulty].splice(mcRandNumbers[i], 1);
+        options[answerLanguage][gameDifficulty].splice(mcRandNumbers[i], 1);
+
+    }
+
+    // Pick a positive number between 1 and number of choices (4, 5, or 6) 
+    // this is the "chosen" number ie to be the question and answer out of the random words
+    numPositive = numOfChoices - 1;
+    let answerNum = Math.floor(Math.random() * numPositive + 1;
 
 }
 

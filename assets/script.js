@@ -162,7 +162,16 @@ function generateQuestion() {
     // Pick a positive number between 1 and number of choices (4, 5, or 6) 
     // this is the "chosen" number ie to be the question and answer out of the random words
     numPositive = numOfChoices - 1;
-    let answerNum = Math.floor(Math.random() * numPositive + 1;
+    let answerNum = Math.floor(Math.random() * numPositive) + 1;
+
+    // Index what will be the question and the respective answer
+    mcQuestion = mcQuestionWords[answerNum];
+    mcAnswer = mcAnswerWords[answerNum];
+    
+    // Append question to HTML
+    document.getElementById("question").innerHTML = (`What is ${mcQuestion} in ${answerLanguage}`);
+
+    // Append answers to radio buttons in HTML
 
 }
 

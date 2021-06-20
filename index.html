@@ -40,7 +40,7 @@
         <div id="game-options-div">
             <h1></h1>  
             <h2>Now choose some game options:</h2>
-            <form>
+            <form id="game-options-form">
                 <h3>Please choose a game difficulty</h3>
 
                 <input type="radio" name="difficulty-radios">
@@ -79,7 +79,9 @@
 
             <div id="title-and-timer">
                 <h1>Un Petit Jeu Francais</h1>
-                <!-- timer -->
+                <div>Time left</div>
+                <div>15</div>
+               
             </div>
             <div id="question-and-answers">
                 <h2></h2>
@@ -114,14 +116,23 @@
                 </form>
             </div>
             <div id="scores"></div>
-            <div id="question-of"></div>
+                <p>Correct</p>
+                <p>Incorrect</p>
+                <p>Skip</p>
+            <div id="question-of">
+                <p>Question 1 of 5</p>
+                <button>Next Question</button>
+                <button>Skip</button>
+            </div>
 
         </div>
 
-
+        <!-- End game screen -->
+        <div id="end-game-screen">
+            Congratulations!
+        </div>
 
     </div>
-
 
     <script src="assets/script.js"></script>
 

@@ -4,15 +4,25 @@ let gameOptionsDiv = document.getElementById("game-options-div");
 let introScreenDiv = document.getElementById("intro-screen-div");
 let playGameDiv = document.getElementById("play-game-screen");
 
+
 // Buttons
 let introScreenBtn = document.getElementById("intro-screen-btn");
 let nameInputScreenBtn = document.getElementById("name-input-btn");
 let playBtn = document.getElementById("play-btn");
 let homeBtn = document.getElementsByClassName("home-btn");
 
+// Global variables
+let gameDifficulty;
+let gameLength;
 
 document.addEventListener("DOMContentLoaded", introScreen);
 
+
+/**
+ * This function pulls up the main introduction screen, welcoming the user to the game,
+ * a brief summary as to what the game is
+ * and the user can input their name
+ */
 function introScreen() {
 
     // Add event listener to button in this page to link to next screen (nameInput)
@@ -20,27 +30,33 @@ function introScreen() {
         event.preventDefault();
         nameInput();
     });
-   
+
 }
 
 function nameInput() {
-    
+
     // let Name Input screen be visible
     inputNameDiv.classList.add("active-div");
 
     // let Intro screen be NOT visible
     introScreenDiv.classList.remove("active-div");
-    
+
     // Add event listener to button in this page to link to next screen (gameOptions)
     nameInputScreenBtn.addEventListener("click", function (event) {
         event.preventDefault();
         gameOptions();
     });
 
-    
+
 }
 
-function gameOptions(){
+
+/**
+ * This screen gives the user some game options
+ * Easy, Medium, Hard - the difference between these should be obvious so add this detail
+ * Game length ie number of questions
+ */
+function gameOptions() {
 
     // Let Game Options screen be visible
     gameOptionsDiv.classList.add("active-div");
@@ -49,10 +65,26 @@ function gameOptions(){
     inputNameDiv.classList.remove("active-div");
 
     playBtn.addEventListener("click", function (event) {
-       event.preventDefault();
-       playGame();
+        event.preventDefault();
+        playGame();
+
+        for (i = 0; i < 3; i++) {
+            if (document.getElementById("game-options-form")[i].checked) {
+                gameDifficulty = document.getElementsByTagName("label")[i].innerText;
+                console.log(gameDifficulty)
+                break;
+            }
+        }
+
+        for (i = 3; i < 7; i++) {
+            if (document.getElementById("game-options-form")[i].checked) {
+                gameLength = document.getElementsByTagName("label")[i].innerText;
+                console.log(gameLength)
+                break;
+            }
+        }
+
     });
-    
 
 }
 
@@ -64,126 +96,24 @@ function playGame() {
     // Let Input Name screen NOT be visible
     gameOptionsDiv.classList.remove("active-div");
 
+    generateQuestion();
+
 }
 
-// /**
-//  * This function pulls up the main introduction screen, welcoming the user to the game,
-//  * a brief summary as to what the game is
-//  * and the user can input their name
-//  */
-// function introScreen() {
-//     // Un Petit Jeu Francais - title
-//     // Welcome message - sub-title
-//     // Let's start with your name - sub-title
-//     // Text input box (required)
-//     // Submit button "OK"
-//     // -> gameOptionsScreen()
 
-//     // get the main div
-//     let mainDiv = document.getElementById("main-div");
-
-//     // create introScreen div
-//     let introScreenDiv = document.createElement("div");
-//     introScreenDiv.id = "intro-screen-div";
-
-//     // create welcome title
-//     let introScreenHello = document.createElement("h1");
-//     introScreenHello.id = "intro-screen-hello";
-//     introScreenHello.innerHTML = "Welcome to Un Petit Jeu Francais";
-
-//     // create welcome message
-//     let introScreenMessage = document.createElement("h2");
-//     introScreenMessage.id = "intro-screen-message";
-//     introScreenMessage.innerHTML = "where you can test your French skills while having fun!";
-
-//     // create name message
-//     let introScreenNameMessage = document.createElement("h3");
-//     introScreenNameMessage.id = "intro-screen-name-message";
-//     introScreenNameMessage.innerHTML = "OK, let's start with your name..";
-
-//     // create text input - if empty = Player 1? Or required
-//     let introScreenNameInput = document.createElement("input");
-//     introScreenNameInput.id = "intro-screen-name-input";
-//     introScreenNameInput.type = "text";
-
-//     // create button
-//     let introScreenButton = document.createElement("button");
-//     introScreenButton.id = "intro-screen-button";
-//     introScreenButton.innerHTML = "OK!";
-//     introScreenButton.addEventListener("click",gameOptionsScreen);
-
-//     // append all HTML items
-//     mainDiv.appendChild(introScreenDiv);
-//     introScreenDiv.appendChild(introScreenHello);
-//     introScreenDiv.appendChild(introScreenMessage);
-//     introScreenDiv.appendChild(introScreenNameMessage);
-//     introScreenDiv.appendChild(introScreenNameInput);
-//     introScreenDiv.appendChild(introScreenButton);
-
-// }
+function generateQuestion() {
 
 
 
-// /**
-//  * This screen gives the user some game options
-//  * Easy, Medium, Hard - the difference between these should be obvious so add this detail
-//  * Game length ie number of questions
-//  */
-// function gameOptionsScreen() {
-//     // Welcome (name) - title
-//     // Choose game options - sub-title
-//     // Game difficulty radio buttons easy, medium, hard - clear indication what these different choices mean for the game
-//     // Game length options - sub-title
-//     // Game length radio buttons 10, 20, 30, 40, 50
-//     // Play!  - button
-//     // Return to Home - button
-//     // -> instructionsScreen()
-
-//     // get info from previous screen
-//     let mainDiv = document.getElementById("main-div");
-//     let userName = document.getElementById("intro-screen-name-input").value;
-
-//     // create gameOptionsDiv
-//     let gameOptionsDiv = document.createElement("div");
-
-//     // create Welcome message
-//     let gameOptionsWelcome = document.createElement("h1");
-//     gameOptionsWelcome.id = "game-options-welcome";
-//     gameOptionsWelcome.innerHTML = (`Welcome ${userName}!`);
-
-//     // create game options message
-//     let gameOptionsMessage = document.createElement("h2");
-//     gameOptionsMessage.id = "game-options-message";
-//     gameOptionsMessage.innerHTML = "Now choose some game options";
-
-//     // create difficulty form 
-//     let gameOptionsDifficultyForm = document.createElement("form");
-//     gameOptionsDifficultyForm.id = "game-options-difficulty-form";
-
-//     // create difficulty message
-//     let gameOptionsDifficultyMessage = document.createElement("h3");
-//     gameOptionsDifficultyMessage.id = "game-options-difficulty-message";
-//     gameOptionsDifficultyMessage.innerHTMl = "Please choose a game difficulty";
-
-//     // create difficulty radio buttons
-//     let difficultyOptions = ["Easy", "Medium", "Hard"];
-    
+}
 
 
-//     // append all HTML items
-//     mainDiv.appendChild(gameOptionsDiv);
-//     gameOptionsDiv.appendChild(gameOptionsWelcome);
-//     gameOptionsDiv.appendChild(gameOptionsMessage);
-//     gameOptionsDiv.appendChild(gameOptionsDifficultyForm);
-//     gameOptionsDifficultyForm.appendChild(gameOptionsDifficultyMessage);
-
-// }
 
 // /**
 //  * This screen gives the user instructions as to how the game will work
 //  */
 // function instructionsScreen() {
-    
+
 // }
 
 // /**

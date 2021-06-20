@@ -1,5 +1,6 @@
 .name-input-div,
-#intro-screen-div
+#intro-screen-div,
+#game-options-div
  {
     position: absolute;
     top: 25%;
@@ -15,7 +16,8 @@
 
 
 .name-input-div.active-div,
-#intro-screen-div.active-div 
+#intro-screen-div.active-div, 
+#game-options-div.active-div
 {
     opacity: 1;
     z-index: 9;

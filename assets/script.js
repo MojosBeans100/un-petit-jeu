@@ -1,19 +1,41 @@
-
+let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
 
 document.addEventListener("DOMContentLoaded", introScreen);
 
-function introScreen(){
-    
+function introScreen() {
+
+    let introScreenBtn = document.getElementById("intro-screen-btn");
+    introScreenBtn.addEventListener("click", function (event) {
+        event.preventDefault()
+    });
+
+    introScreenBtn.addEventListener("click", nameInput);
 }
 
 function nameInput() {
     
-    let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
+    // let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
     inputNameDiv.classList.add("active-div");
 
     let introScreenDiv = document.getElementById("intro-screen-div");
     introScreenDiv.classList.remove("active-div");
     // console.log(introScreenDiv);
+
+    let nameInputScreenBtn = document.getElementById("name-input-btn");
+    nameInputScreenBtn.addEventListener("click", function (event) {
+        event.preventDefault()
+    });
+
+    nameInputScreenBtn.addEventListener("click", gameOptions);
+
+}
+
+function gameOptions(){
+
+    let gameOptionsDiv = document.getElementById("game-options-div");
+    gameOptionsDiv.classList.add("active-div");
+
+    inputNameDiv.classList.remove("active-div");
 
 }
 

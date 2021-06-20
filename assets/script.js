@@ -123,16 +123,28 @@ function generateQuestion() {
         }
     }
 
-    if (gameDifficulty = "easy") {
+    gameDiff = gameDifficulty.toLowerCase();
+    
+    if (gameDiff === "easy") {
         numOfChoices = 4;
         timeLimit = 1500;
         questionLanguage = "French";
         answerLanguage = "English";
-    } else if (gameDifficulty = "medium") {
+
+        document.getElementsByClassName("radios")[0].remove();
+        document.getElementsByClassName("radios-labels")[0].remove();
+        document.getElementsByClassName("radios")[1].remove();
+        document.getElementsByClassName("radios-labels")[1].remove();
+
+    } else if (gameDiff === "medium") {
         numOfChoices = 5;
         timeLimit = 1000;
         questionLanguage = "French";
         answerLanguage = "English";
+
+        document.getElementsByClassName("radios")[0].remove();
+        document.getElementsByClassName("radios-labels")[0].remove();
+
     } else {
         numOfChoices = 6;
         timeLimit = 500;
@@ -147,15 +159,15 @@ function generateQuestion() {
     for (i = 0; i < numOfChoices; i++) {
 
         // Create random numbers
-        mcRandNumbers[i] = Math.floor(Math.random() * options[questionLanguage][gameDifficulty].length);
+        mcRandNumbers[i] = Math.floor(Math.random() * options[questionLanguage][gameDiff].length);
 
         // Index words from question and answer arrays 
-        mcQuestionWords[i] = options[questionLanguage][gameDifficulty][mcRandNumbers[i]];
-        mcAnswerWords[i] = options[answerLanguage][gameDifficulty][mcRandNumbers[i]];
+        mcQuestionWords[i] = options[questionLanguage][gameDiff][mcRandNumbers[i]];
+        mcAnswerWords[i] = options[answerLanguage][gameDiff][mcRandNumbers[i]];
 
         // Remove these words from array so they cannot be chosen again in same game
-        options[questionLanguage][gameDifficulty].splice(mcRandNumbers[i], 1);
-        options[answerLanguage][gameDifficulty].splice(mcRandNumbers[i], 1);
+        options[questionLanguage][gameDiff].splice(mcRandNumbers[i], 1);
+        options[answerLanguage][gameDiff].splice(mcRandNumbers[i], 1);
 
     }
 
@@ -171,7 +183,14 @@ function generateQuestion() {
     // Append question to HTML
     document.getElementById("question").innerHTML = (`What is ${mcQuestion} in ${answerLanguage}`);
 
+    console.log(mcAnswerWords);
+
     // Append answers to radio buttons in HTML
+    let mcForm = document.getElementsByClassName("radios-labels");
+    console.log(mcForm);
+    for (i = 0; i < mcForm.length; i++) {
+        mcForm[i].innerHTML = mcAnswerWords[i];
+    }
 
 }
 

@@ -1,19 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    <div id = "main-div">
-        
+
+    <div id="main-div">
+
+        <!-- First screen upon opening site -->
+        <div id="intro-screen-div">
+            <h1 id="intro-screen-hello">
+                Welcome to Un Petit Jeu Francais!
+            </h1>
+
+            <h2 id="intro-screen-message">
+                where you can test your French skills while having fun!
+            </h2>
+
+            <button id="intro-screen-btn">Play game >!</button>
+        </div>
+
+        <!-- Next screen to input name -->
+        <div id="name-input-div">
+            <h2>First let's start with your name:</h2>
+            <form>
+                <input type="text">
+                <button>OK!</button>
+            </form>
+
+        </div>
+
+        <!-- Game options screen     -->
+        <div id="game-options-div">
+            <h1></h1>  
+            <h2>Now choose some game options:</h2>
+            <form>
+                <h3>Please choose a game difficulty</h3>
+
+                <input type="radio" name="difficulty-radios">
+                <label>Easy</label>
+
+                <input type="radio" name="difficulty-radios">
+                <label>Medium</label>
+
+                <input type="radio" name="difficulty-radios">
+                <label>Hard</label>
+
+                <h3>Now choose how many questions you'd like to answer</h3>
+                
+                <input type="radio" name="game-length-radios">
+                <label>10</label>
+
+                <input type="radio" name="game-length-radios">
+                <label>20</label>
+
+                <input type="radio" name="game-length-radios">
+                <label>30</label>
+
+                <input type="radio" name="game-length-radios">
+                <label>40</label>
+
+                <button>Play!</button>
+                <button>Home</button>
+
+            </form>
+
+
+        </div>
+
+
+
+
+
     </div>
 
 
-<script src="assets/script.js"></script>
+    <script src="assets/script.js"></script>
 
 </body>
+
 </html>

@@ -10,10 +10,13 @@ let introScreenBtn = document.getElementById("intro-screen-btn");
 let nameInputScreenBtn = document.getElementById("name-input-btn");
 let playBtn = document.getElementById("play-btn");
 let homeBtn = document.getElementsByClassName("home-btn");
+let nextQBtn = document.getElementById("next-question-btn");
+let skipQBtn = document.getElementById("skip-question-btn");
 
 // Global variables
 let gameDifficulty;
 let gameLength;
+let questionsAnswered = 0;
 
 
 // Define language arrays
@@ -131,10 +134,14 @@ function generateQuestion() {
         questionLanguage = "French";
         answerLanguage = "English";
 
+        if (questionsAnswered === 0) {
         document.getElementsByClassName("radios")[0].remove();
         document.getElementsByClassName("radios-labels")[0].remove();
         document.getElementsByClassName("radios")[1].remove();
         document.getElementsByClassName("radios-labels")[1].remove();
+        } else {
+            
+        }
 
     } else if (gameDiff === "medium") {
         numOfChoices = 5;
@@ -142,8 +149,10 @@ function generateQuestion() {
         questionLanguage = "French";
         answerLanguage = "English";
 
+        if (questionsAnswered === 0) {
         document.getElementsByClassName("radios")[0].remove();
         document.getElementsByClassName("radios-labels")[0].remove();
+        }
 
     } else {
         numOfChoices = 6;
@@ -187,14 +196,46 @@ function generateQuestion() {
 
     // Append answers to radio buttons in HTML
     let mcForm = document.getElementsByClassName("radios-labels");
-    console.log(mcForm);
     for (i = 0; i < mcForm.length; i++) {
         mcForm[i].innerHTML = mcAnswerWords[i];
     }
 
+    nextQBtn.addEventListener("click",checkAnswer);
+    skipQBtn.addEventListener("click",skipQuestion);
+
 }
 
 
+function checkAnswer() {
+
+    questionsAnswered++;
+
+    for (i = 0; i < document.getElementsByClassName("radios-labels").length; i++) {
+        if (document.getElementsByClassName("radios")[i].checked) {
+            let userAnswer = document.getElementsByClassName("radios-labels")[i].innerHTML;
+            
+            if (userAnswer === mcAnswer) {
+                let correctTally = (parseInt(document.getElementsByClassName("tallies")[0].innerText));
+                let newCorrectTally = correctTally += 1;
+                console.log(newCorrectTally);
+                correctTally.innerHTML = newCorrectTally; 
+            } else {
+                let incorrectTally = (parseInt(document.getElementsByClassName("tallies")[1].innerText));
+                let newIncorrectTally = incorrectTally += 1;
+                console.log(newIncorrectTally);
+                incorrectTally.innerHTML = newIncorrectTally;
+            }
+
+            generateQuestion();
+
+        }
+    }
+
+}
+
+function skipQuestion() {
+
+}
 
 // /**
 //  * This screen gives the user instructions as to how the game will work

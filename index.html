@@ -30,7 +30,7 @@
         <div class="name-input-div">
             <h2>First let's start with your name:</h2>
             <form>
-                <input type="text">
+                <input type="text" required="true">
                 <button id="name-input-btn">OK!</button>
             </form>
 
@@ -111,13 +111,13 @@
                 </form>
             </div>
             <div id="scores"></div>
-                <p>Correct</p>
-                <p>Incorrect</p>
-                <p>Skip</p>
+                <p>Correct</p>      <p class="tallies">0</p>
+                <p>Incorrect</p>    <p class="tallies">0</p>
+                <p>Skip</p>         <p class="tallies">0</p>
             <div id="question-of">
                 <p>Question 1 of 5</p>
-                <button>Next Question</button>
-                <button>Skip</button>
+                <button id="next-question-btn">Next Question</button>
+                <button id="skip-question-btn">Skip</button>
             </div>
 
         </div>

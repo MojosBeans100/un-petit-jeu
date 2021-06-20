@@ -68,21 +68,7 @@ function gameOptions() {
         event.preventDefault();
         playGame();
 
-        for (i = 0; i < 3; i++) {
-            if (document.getElementById("game-options-form")[i].checked) {
-                gameDifficulty = document.getElementsByTagName("label")[i].innerText;
-                console.log(gameDifficulty)
-                break;
-            }
-        }
-
-        for (i = 3; i < 7; i++) {
-            if (document.getElementById("game-options-form")[i].checked) {
-                gameLength = document.getElementsByTagName("label")[i].innerText;
-                console.log(gameLength)
-                break;
-            }
-        }
+        
 
     });
 
@@ -103,7 +89,42 @@ function playGame() {
 
 function generateQuestion() {
 
+    // Get user's choice for game difficulty
+    for (i = 0; i < 3; i++) {
+        if (document.getElementById("game-options-form")[i].checked) {
+            gameDifficulty = toLowerCase(document.getElementsByTagName("label")[i].innerText);
+            console.log(gameDifficulty)
+            break;
+        }
+    }
 
+    // Get user's choice for game length
+    for (i = 3; i < 7; i++) {
+        if (document.getElementById("game-options-form")[i].checked) {
+            gameLength = document.getElementsByTagName("label")[i].innerText;
+            console.log(gameLength)
+            break;
+        }
+    }
+
+    if (gameDifficulty = "easy") {
+        numOfChoices = 4;
+        timeLimit = 1500;
+        questionLanguage = "French";
+        answerLanguage = "English";
+   } else if (gameDifficulty = "medium") {
+        numOfChoices = 5;
+        timeLimit = 1000;
+        questionLanguage = "French";
+        answerLanguage = "English";
+   } else {
+        numOfChoices = 6;
+        timeLimit = 500;
+        questionLanguage = "English";
+        answerLanguage = "French";
+   }
+
+   
 
 }
 

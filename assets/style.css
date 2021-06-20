@@ -1,6 +1,7 @@
 .name-input-div,
 #intro-screen-div,
-#game-options-div
+#game-options-div,
+#play-game-screen
  {
     position: absolute;
     top: 25%;
@@ -17,8 +18,14 @@
 
 .name-input-div.active-div,
 #intro-screen-div.active-div, 
-#game-options-div.active-div
+#game-options-div.active-div,
+#play-game-screen.active-div
 {
     opacity: 1;
     z-index: 9;
 }
+
+
+#play-button {}
+
+.home-button{}

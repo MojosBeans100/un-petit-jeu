@@ -1,41 +1,68 @@
+// Screens
 let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
+let gameOptionsDiv = document.getElementById("game-options-div");
+let introScreenDiv = document.getElementById("intro-screen-div");
+let playGameDiv = document.getElementById("play-game-screen");
+
+// Buttons
+let introScreenBtn = document.getElementById("intro-screen-btn");
+let nameInputScreenBtn = document.getElementById("name-input-btn");
+let playBtn = document.getElementById("play-btn");
+let homeBtn = document.getElementsByClassName("home-btn");
+
 
 document.addEventListener("DOMContentLoaded", introScreen);
 
 function introScreen() {
 
-    let introScreenBtn = document.getElementById("intro-screen-btn");
+    // Add event listener to button in this page to link to next screen (nameInput)
     introScreenBtn.addEventListener("click", function (event) {
-        event.preventDefault()
+        event.preventDefault();
+        nameInput();
     });
-
-    introScreenBtn.addEventListener("click", nameInput);
+   
 }
 
 function nameInput() {
     
-    // let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
+    // let Name Input screen be visible
     inputNameDiv.classList.add("active-div");
 
-    let introScreenDiv = document.getElementById("intro-screen-div");
+    // let Intro screen be NOT visible
     introScreenDiv.classList.remove("active-div");
-    // console.log(introScreenDiv);
-
-    let nameInputScreenBtn = document.getElementById("name-input-btn");
+    
+    // Add event listener to button in this page to link to next screen (gameOptions)
     nameInputScreenBtn.addEventListener("click", function (event) {
-        event.preventDefault()
+        event.preventDefault();
+        gameOptions();
     });
 
-    nameInputScreenBtn.addEventListener("click", gameOptions);
-
+    
 }
 
 function gameOptions(){
 
-    let gameOptionsDiv = document.getElementById("game-options-div");
+    // Let Game Options screen be visible
     gameOptionsDiv.classList.add("active-div");
 
+    // Let Input Name screen NOT be visible
     inputNameDiv.classList.remove("active-div");
+
+    playBtn.addEventListener("click", function (event) {
+       event.preventDefault();
+       playGame();
+    });
+    
+
+}
+
+function playGame() {
+
+    // Let Play Game screen be visible
+    playGameDiv.classList.add("active-div");
+
+    // Let Input Name screen NOT be visible
+    gameOptionsDiv.classList.remove("active-div");
 
 }
 

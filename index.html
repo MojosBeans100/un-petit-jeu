@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
     <div id="main-div">
 
         <!-- First screen upon opening site -->
-        <div id="intro-screen-div">
+        <div class="active-div" id="intro-screen-div">
             <h1 id="intro-screen-hello">
                 Welcome to Un Petit Jeu Francais!
             </h1>
@@ -22,11 +23,11 @@
                 where you can test your French skills while having fun!
             </h2>
 
-            <button id="intro-screen-btn">Play game >!</button>
+            <button id="intro-screen-btn" onclick="nameInput();">Play game >!</button>
         </div>
 
         <!-- Next screen to input name -->
-        <div id="name-input-div">
+        <div class="name-input-div">
             <h2>First let's start with your name:</h2>
             <form>
                 <input type="text">
@@ -35,7 +36,7 @@
 
         </div>
 
-        <!-- Game options screen     -->
+        <!-- Game options screen    
         <div id="game-options-div">
             <h1></h1>  
             <h2>Now choose some game options:</h2>
@@ -71,7 +72,7 @@
             </form>
 
 
-        </div>
+        </div> -->
 
 
 

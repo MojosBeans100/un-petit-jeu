@@ -1,0 +1,22 @@
+.name-input-div,
+#intro-screen-div
+ {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    opacity: 0;
+    width: 50%;
+    height: 50%;
+}
+
+#intro-screen-div {
+    z-index: 9;
+}
+
+
+.name-input-div.active-div,
+#intro-screen-div.active-div 
+{
+    opacity: 1;
+    z-index: 9;
+}

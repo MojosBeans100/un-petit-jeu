@@ -1,5 +1,21 @@
 
-// document.addEventListener("DOMContentLoaded", introScreen);
+
+document.addEventListener("DOMContentLoaded", introScreen);
+
+function introScreen(){
+    
+}
+
+function nameInput() {
+    
+    let inputNameDiv = document.getElementsByClassName("name-input-div")[0];
+    inputNameDiv.classList.add("active-div");
+
+    let introScreenDiv = document.getElementById("intro-screen-div");
+    introScreenDiv.classList.remove("active-div");
+    // console.log(introScreenDiv);
+
+}
 
 // /**
 //  * This function pulls up the main introduction screen, welcoming the user to the game,
@@ -56,6 +72,8 @@
 //     introScreenDiv.appendChild(introScreenButton);
 
 // }
+
+
 
 // /**
 //  * This screen gives the user some game options
